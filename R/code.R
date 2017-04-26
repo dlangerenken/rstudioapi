@@ -9,7 +9,7 @@
 #' rstudioapi::isAvailable()
 #' \dontrun{rstudioapi::verifyAvailable()}
 isAvailable <- function(version_needed = NULL) {
-  identical(.Platform$GUI, "RStudio") && version_ok(version_needed)
+  (identical(.Platform$GUI, "RStudio") || identical(.Platform$GUI, "X11")) && version_ok(version_needed)
 }
 
 version_ok <- function(version = NULL) {
